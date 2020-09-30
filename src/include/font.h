@@ -1,22 +1,12 @@
+#ifndef FONT_H
+#define FONT_H
 #include <common.h>
+#include <d3d11.h>
 
 
 
-typedef struct _FONT* Font;
+Font load_font(const FontCharacter* c,RawTexture tx);
 
 
 
-struct FontCharacter{
-	char ch;
-	uint8_t w;
-	float ua;
-	float va;
-	float ub;
-	float vb;
-};
-
-
-
-Font load_font(struct FontCharacter* c){
-
-}
+#endif
