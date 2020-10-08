@@ -1453,7 +1453,7 @@ VertexShader GEngine_load_vertex_shader(const BYTE* dt,size_t ln,VS_INPUT_LAYOUT
 		return -1;
 	}
 	ID3D11InputLayout* vl=NULL;
-	hr=ID3D11Device_CreateInputLayout(_d3_d,il,ill,dt,ln,&vl);
+	hr=ID3D11Device_CreateInputLayout(_d3_d,il,ill/sizeof(VS_INPUT_LAYOUT),dt,ln,&vl);
 	if (FAILED(hr)){
 		printf("Error creating VS Input Layout\n");
 		assert(0);

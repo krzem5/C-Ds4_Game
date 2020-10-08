@@ -1,5 +1,8 @@
 #ifndef COMMON_H
 #define COMMON_H
+#define COBJMACROS
+#include <windows.h>
+#include <d3d11_1.h>
 #include <signal.h>
 #include <stdint.h>
 #include <limits.h>
@@ -24,22 +27,28 @@
 
 
 typedef struct _RAW_TEXTURE RawTexture;
+typedef ID3D11ShaderResourceView* Texture;
 typedef struct _FONT* Font;
 typedef struct _FONT_CHARACTER FontCharacter;
+typedef struct _RENDERED_TEXT* RenderedText;
 
 
 
 struct _RAW_TEXTURE{
-	int f;
-	uint64_t r;
-	uint64_t sz;
+	uint32_t f;
+	uint32_t w;
+	uint32_t h;
+	uint32_t p;
+	uint32_t sp;
 	const uint8_t* dt;
 };
 
 
 
 struct _FONT{
+	Texture _t;
 	uint8_t _l;
+	float* _dt;
 };
 
 
@@ -51,6 +60,15 @@ struct _FONT_CHARACTER{
 	float va;
 	float ub;
 	float vb;
+};
+
+
+
+struct _RENDERED_TEXT{
+	Texture _t;
+	uint32_t _il;
+	ID3D11Buffer* _vb;
+	ID3D11Buffer* _ib;
 };
 
 

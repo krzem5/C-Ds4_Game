@@ -5,7 +5,15 @@
 
 
 
-Font load_font(const FontCharacter* c,RawTexture tx);
+Font load_font(const FontCharacter* c,uint8_t sz,RawTexture tx);
+
+
+
+RenderedText render_text(float x,float y,float z,char* s,Font f);
+
+
+
+void draw_rendered_text(RenderedText txt);
 
 
 

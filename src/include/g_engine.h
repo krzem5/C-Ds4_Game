@@ -244,6 +244,35 @@ struct SHADER_DATA{
 
 
 
+extern HWND _w;
+extern uint32_t _ww;
+extern uint32_t _wh;
+extern bool _wf;
+extern float _cc[4];
+extern GEngine_init_func _if;
+extern GEngine_render_func _rf;
+extern ID3D11Device* _d3_d;
+extern ID3D11Device1* _d3_d1;
+extern ID3D11DeviceContext* _d3_dc;
+extern ID3D11DeviceContext1* _d3_dc1;
+extern IDXGISwapChain* _d3_sc;
+extern IDXGISwapChain1* _d3_sc1;
+extern ID3D11RenderTargetView* _d3_rt;
+extern ID3D11Texture2D* _d3_ds;
+extern ID3D11DepthStencilView* _d3_sv;
+extern ID3D11VertexShader** _vsl;
+extern ID3D11PixelShader** _psl;
+extern ID3D11Buffer** _cbl;
+extern size_t* _cblsz;
+extern uint8_t* _cblp;
+extern uint32_t _vsll;
+extern uint32_t _psll;
+extern uint32_t _cbll;
+extern uint8_t* _kb;
+extern bool _rkb;
+
+
+
 uint32_t GEngine_window_width();
 
 
