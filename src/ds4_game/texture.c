@@ -30,8 +30,6 @@ Texture create_texture(RawTexture r){
 	ID3D11Texture2D* t=NULL;
 	HRESULT hr=ID3D11Device_CreateTexture2D(_d3_d,&d,&sd,&t);
 	if (FAILED(hr)){
-		printf("%x\n",hr);
-		assert(0);
 		return NULL;
 	}
 	D3D11_SHADER_RESOURCE_VIEW_DESC rvd={
@@ -46,7 +44,7 @@ Texture create_texture(RawTexture r){
 	};
 	Texture o=NULL;
 	ID3D11Resource* tr;
-	ID3D11Texture2D_QueryInterface(_d3_d,&IID_ID3D11Resource,(void**)&tr);
+	ID3D11Texture2D_QueryInterface(t,&IID_ID3D11Resource,(void**)&tr);
 	ID3D11Device_CreateShaderResourceView(_d3_d,tr,&rvd,&o);
 	IUnknown_Release(tr);
 	return o;
